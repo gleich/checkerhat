@@ -7,14 +7,19 @@ import (
 
 // Reset the board
 func Reset(grid *Board, fb *screen.FrameBuffer) error {
-	for x, row := range grid {
-		var skip bool
-		for y := range row {
-			if skip == true {
+	for y, row := range grid {
+		skip := false
+		if y%2 != 0 {
+			skip = true
+		}
+		for x := range row {
+			if skip {
 				skip = false
+				grid[y][x] = color.Black
 				continue
 			}
-			grid[x][y] = color.White
+			grid[y][x] = color.White
+			skip = true
 		}
 	}
 	return updateBoard(fb, *grid)

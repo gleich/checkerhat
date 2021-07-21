@@ -1,7 +1,7 @@
 package out
 
 import (
-	"io"
+	"fmt"
 
 	"github.com/gleich/lumber"
 	"github.com/gliderlabs/ssh"
@@ -9,10 +9,6 @@ import (
 
 // Output an error to the user and log it to the console
 func Error(s ssh.Session, err error, msg string) {
-	contactMsg := " Please contact Matt Gleich about this bug."
-	_, writeErr := io.WriteString(s, msg+contactMsg)
-	if writeErr != nil {
-		lumber.Error(writeErr, "Failed to write error msg")
-	}
+	fmt.Fprintln(s, msg+" Please contact Matt Gleich about this bug.")
 	lumber.Error(err, msg)
 }

@@ -22,7 +22,7 @@ func main() {
 			out.Error(s, err, "Failed to reset the board")
 		}
 	})
-	lumber.FatalMsg(ssh.ListenAndServe(":4000", nil))
+	lumber.FatalMsg(ssh.ListenAndServe(":3000", nil))
 
 	// Flush the screen
 	err := screen.Clear()
