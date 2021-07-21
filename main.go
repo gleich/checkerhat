@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/gleich/arcade/out"
 	"github.com/gleich/arcade/pkg/board"
+	"github.com/gleich/arcade/pkg/out"
 	"github.com/gleich/lumber"
 	"github.com/gliderlabs/ssh"
 	"github.com/nathany/bobblehat/sense/screen"
