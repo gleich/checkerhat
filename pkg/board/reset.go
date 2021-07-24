@@ -8,8 +8,8 @@ import (
 )
 
 // Reset the board
-func Reset(grid *Board, fb *screen.FrameBuffer) (Coordinate, error) {
-	validCors := Coordinate{}
+func Reset(grid *Board, fb *screen.FrameBuffer) ([]Coordinate, error) {
+	validCors := []Coordinate{}
 	for y, row := range grid {
 		skip := false
 		if y%2 == 0 {
@@ -32,7 +32,7 @@ func Reset(grid *Board, fb *screen.FrameBuffer) (Coordinate, error) {
 
 			err := updateBoard(fb, *grid)
 			if err != nil {
-				return Coordinate{}, err
+				return []Coordinate{}, err
 			}
 			time.Sleep(time.Millisecond * 100)
 		}

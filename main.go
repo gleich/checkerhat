@@ -5,9 +5,11 @@ import (
 	"log"
 
 	"github.com/gleich/arcade/pkg/board"
+	"github.com/gleich/arcade/pkg/out"
 	"github.com/gleich/lumber"
 	"github.com/gliderlabs/ssh"
 	"github.com/nathany/bobblehat/sense/screen"
+	"golang.org/x/term"
 )
 
 func main() {
@@ -23,7 +25,12 @@ func main() {
 	fmt.Println(validCors)
 
 	ssh.Handle(func(s ssh.Session) {
-		fmt.Println("Handeling ssh session")
+		terminal := term.NewTerminal(s, "")
+
+		err := board.MovePiece(s, terminal, validCors, 1)
+		if err != nil {
+			out.Error(s, err, "Failed to move piece")
+		}
 	})
 	lumber.FatalMsg(ssh.ListenAndServe(":3000", nil))
 

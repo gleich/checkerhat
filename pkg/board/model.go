@@ -6,4 +6,4 @@ import "github.com/nathany/bobblehat/sense/screen/color"
 type Board [8][8]color.Color
 
 // A coordinate
-type Coordinate [][2]int
+type Coordinate [2]int
