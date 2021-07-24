@@ -1,4 +1,4 @@
-module github.com/gleich/arcade
+module github.com/gleich/checkerhat
 
 go 1.16
 

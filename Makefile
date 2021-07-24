@@ -1,9 +1,9 @@
-SSH_LOC="pi@zephyr-arcade.local"
+SSH_LOC="pi@zephyr-checkerhat.local"
 
 deploy:
-	GOOS=linux GOARCH=arm go build -o bin/arcade .
+	GOOS=linux GOARCH=arm go build -o bin/checkerhat .
 	rsync -avhut --progress --delete ./bin/ $(SSH_LOC):~/bin/
-	ssh $(SSH_LOC) << echo "~/bin/arcade"
+	ssh $(SSH_LOC) << echo "~/bin/checkerhat"
 
 connect:
 	sed -i '' -e '$ d' ~/.ssh/known_hosts

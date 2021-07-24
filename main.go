@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/gleich/arcade/pkg/board"
-	"github.com/gleich/arcade/pkg/out"
+	"github.com/gleich/checkerhat/pkg/board"
+	"github.com/gleich/checkerhat/pkg/out"
 	"github.com/gleich/lumber"
 	"github.com/gliderlabs/ssh"
 	"github.com/nathany/bobblehat/sense/screen"
